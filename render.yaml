@@ -1,0 +1,21 @@
+# =============================================================================
+# EduHorários - Render Blueprint Specification (render.yaml)
+# https://render.com/docs/blueprint-spec
+# =============================================================================
+
+services:
+  # Web Service com Docker (React SPA + Supabase)
+  - type: web
+    name: eduhorarios-app
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    region: oregon
+    envVars:
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: PORT
+        value: "10000"
+

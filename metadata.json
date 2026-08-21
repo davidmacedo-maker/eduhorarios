@@ -1,0 +1,6 @@
+{
+  "name": "EduHorários",
+  "description": "Sistema completo para gestão de horários escolares com o módulo Diagnóstico Inteligente de Alocação (DIA), auditoria robusta de cargas horárias, controle de disponibilidades, e alocação segura de contraturno.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

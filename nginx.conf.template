@@ -1,0 +1,30 @@
+server {
+    listen ${PORT_NUMBER};
+    server_name _;
+    root /var/www/html/dist;
+    index index.html;
+
+    # 1. Bloquear acesso a arquivos ocultos, .env, .git e diretórios sensíveis
+    location ~ /\.(?!well-known).* {
+        deny all;
+        return 404;
+    }
+    location ~ ^/(config|includes|database|scripts)/ {
+        deny all;
+        return 404;
+    }
+
+    # 2. Roteamento seguro das requisições PHP da API/Autenticação
+    location ~ ^/(auth|api)/.*\.php$ {
+        root /var/www/html;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
+    # 3. Rota principal React Single Page Application (SPA)
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
