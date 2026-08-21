@@ -1,0 +1,443 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* LIGHT MODE - Deep Navy/Indigo Palette */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -8;
+
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 220 20% 97%;
+  --foreground: 220 25% 12%;
+  --border: 220 15% 87%;
+  --input: 220 15% 87%;
+  --ring: 219 78% 50%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 220 25% 12%;
+  --card-border: 220 15% 87%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 25% 12%;
+  --popover-border: 220 15% 87%;
+
+  --primary: 219 78% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 15% 92%;
+  --secondary-foreground: 220 25% 20%;
+
+  --muted: 220 15% 94%;
+  --muted-foreground: 220 15% 45%;
+
+  --accent: 219 78% 94%;
+  --accent-foreground: 219 78% 35%;
+
+  --destructive: 0 84% 58%;
+  --destructive-foreground: 0 0% 100%;
+
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 220 25% 18%;
+  --sidebar-border: 220 15% 88%;
+  --sidebar-primary: 219 78% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 219 78% 95%;
+  --sidebar-accent-foreground: 219 78% 35%;
+  --sidebar-ring: 219 78% 50%;
+
+  --chart-1: 233 47% 35%;
+  --chart-2: 199 89% 48%;
+  --chart-3: 142 71% 45%;
+  --chart-4: 43 100% 50%;
+  --chart-5: 348 83% 47%;
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+
+  --shadow-2xs: 0px 2px 0px 0px rgba(0, 0, 0, 0.02);
+  --shadow-xs: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0px 2px 0px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0px 2px 0px 0px rgba(0, 0, 0, 0.04), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0px 2px 0px 0px rgba(0, 0, 0, 0.04), 0px 4px 6px -1px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0px 2px 0px 0px rgba(0, 0, 0, 0.04), 0px 8px 10px -1px rgba(0, 0, 0, 0.06);
+  --shadow-2xl: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+  --opaque-button-border-intensity: 9;
+
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 233 47% 10%;
+  --foreground: 226 50% 96%;
+  --border: 233 30% 25%;
+  --input: 233 30% 25%;
+  --ring: 226 50% 75%;
+
+  --card: 233 47% 15%;
+  --card-foreground: 226 50% 96%;
+  --card-border: 233 30% 25%;
+
+  --popover: 233 47% 15%;
+  --popover-foreground: 226 50% 96%;
+  --popover-border: 233 30% 25%;
+
+  --primary: 226 50% 75%;
+  --primary-foreground: 233 47% 15%;
+
+  --secondary: 233 30% 25%;
+  --secondary-foreground: 226 50% 96%;
+
+  --muted: 233 30% 20%;
+  --muted-foreground: 226 20% 70%;
+
+  --accent: 233 30% 25%;
+  --accent-foreground: 226 50% 96%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%;
+
+  --sidebar: 233 47% 12%;
+  --sidebar-foreground: 226 50% 96%;
+  --sidebar-border: 233 30% 25%;
+  --sidebar-primary: 226 50% 75%;
+  --sidebar-primary-foreground: 233 47% 15%;
+  --sidebar-accent: 233 30% 25%;
+  --sidebar-accent-foreground: 226 50% 96%;
+  --sidebar-ring: 226 50% 75%;
+
+  --chart-1: 226 50% 75%;
+  --chart-2: 199 89% 48%;
+  --chart-3: 142 71% 45%;
+  --chart-4: 43 100% 50%;
+  --chart-5: 348 83% 47%;
+
+  --shadow-2xs: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+  --shadow-xs: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0px 2px 0px 0px rgba(0, 0, 0, 0.4), 0px 1px 2px -1px rgba(0, 0, 0, 0.2);
+  --shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.4), 0px 1px 2px -1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0px 2px 0px 0px rgba(0, 0, 0, 0.4), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0px 2px 0px 0px rgba(0, 0, 0, 0.4), 0px 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0px 2px 0px 0px rgba(0, 0, 0, 0.4), 0px 8px 10px -1px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0px 2px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@media print {
+  /* Incrementado: Configuração da Folha A4 Física */
+  @page { 
+    size: A4 portrait; 
+    margin-top: 7mm; 
+    margin-bottom: 7mm; 
+    margin-left: 20mm; 
+    margin-right: 5mm; 
+  }
+
+  html, body {
+    background: white !important;
+    background-color: white !important;
+    color: black !important;
+  }
+  .no-print, [data-print-hide="true"], aside, header {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+@layer utilities {
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+  .no-default-hover-elevate {}
+  .no-default-active-elevate {}
+
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    border-radius: inherit;
+    z-index: 999;
+  }
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+
+/* Incrementado: Compactação das Células da Folha de Ponto */
+.ponto-data-row td {
+  height: auto !important;
+  min-height: 4.8mm !important;
+  padding: 1px 1.5px !important;
+}
+
+@media print {
+  /* Hide navigation chrome */
+  .no-print,
+  [data-print-hide="true"],
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Fix layout for printing: remove fixed height + overflow clipping */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Root flex layout: hide sidebar, let content fill page */
+  body > div,
+  #root > div {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Sidebar: always hidden */
+  aside,
+  [data-sidebar],
+  .sidebar-wrapper {
+    display: none !important;
+  }
+
+  /* Main content: full width, no overflow clip, auto height */
+  main {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0.5rem !important;
+    margin: 0 !important;
+  }
+
+  /* Remove overflow clipping from table wrappers */
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+
+  /* Cards: white background, visible borders */
+  [class*="rounded"],
+  .border {
+    border-radius: 0 !important;
+  }
+
+  /* Table: full width, no page-break inside rows */
+  table {
+    width: 100% !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+  }
+
+  /* Muted text: readable in print */
+  [class*="text-muted-foreground"] {
+    color: #555 !important;
+  }
+
+  /* Allow background colors and images to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force page and layout containers to be white — prevents app theme color bleeding */
+  html, body,
+  body > div, body > div > div,
+  #root, #root > div, #root > div > div,
+  main, main > div, .overflow-x-auto {
+    background: white !important;
+    background-color: white !important;
+    box-shadow: none !important;
+  }
+
+  /* Ajustes específicos para garantir que a 'Grade Completa' caiba perfeitamente no A4 sem cortes */
+  #grade-completa-pdf-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    display: block !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Quadros de horário (day-container) fluindo verticalmente sem quebras internas de página */
+  #grade-completa-pdf-content .day-container,
+  .day-container {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+    padding: 10px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    float: none !important;
+    position: relative !important;
+  }
+
+  /* Ajuste de escala e auto-responsividade das tabelas para evitar cortes horizontais */
+  #grade-completa-pdf-content table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important; /* Permite redimensionar colunas de forma automática e proporcional */
+    border-collapse: collapse !important;
+  }
+
+  #grade-completa-pdf-content th,
+  #grade-completa-pdf-content td {
+    padding: 2px 1px !important;
+    font-size: 8px !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+  }
+}
